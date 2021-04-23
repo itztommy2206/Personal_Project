@@ -1,0 +1,70 @@
+{% extends "frontPage.html" %}
+{% block title %}Login or Registration{% endblock %}
+{% block head %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/loginPagess.css' %}">
+
+{{ block.super }}
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="loginVideo">
+        <video autoplay="autoplay" loop muted id="loginVideo">
+            <source src="{% static 'videos/Battle_Academia.mp4' %}">
+        </video>
+    </div>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="registration">
+        <form action="/register/submit" method="POST">
+            {%csrf_token%}
+            <h1>Registration</h1>
+            <label for="first_name">First Name:</label><br>
+            <input type="text" name="first_name"><br>
+            
+
+            <label for="last_name">Last Name:</label><br>
+            <input type="text" name="last_name"><br>
+            
+            <label for="birthday">Date of Birth:</label><br>
+            <input type="date" name="birthday"><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="text" name="email"><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="password" name="password"><br>
+            
+            <label for="passwordcf">Confirm Password:</label><br>
+            <input type="password" name="passwordcf"><br>
+            
+            <input type="submit" id="register_butt" class="btn btn-outline-primary" value="Register">
+        </form> 
+    </div>
+    
+
+    <div class="login">
+        <form action="/login/redirect" method="POST">
+            {%csrf_token%}
+            <h1>Login</h1>
+            <label for="email">Email:</label><br>
+            <input type="text" name="email"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" name="password"><br>
+
+            <input type="submit" id="login_butt" class="btn btn-outline-success" value="Login">
+        </form>
+    </div>
+    <div class="leagueLogo">
+        <img class="imgLogo" src="{%static 'Pictures/League_of_Legends_logo.png'%}">
+    </div>
+   
+</div>
+<script src="{% static 'js/login.js' %}"
+{% endblock %}

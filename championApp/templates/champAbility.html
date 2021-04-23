@@ -1,0 +1,144 @@
+{% extends "frontPage.html" %}
+{% block title %}Champion Stats{% endblock %}
+{% block head %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/champAbility.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css"/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+{{ block.super }}
+{% endblock %}
+{% block content %}
+<style>
+    .swiper-slide{
+        width:500px;
+    }
+</style>
+<div class="container">
+    <div class="champion_skins">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {%for skin in skin_info%}
+                <div class="swiper-slide">
+                    <h4>{{skin.name}}</h4>
+                    <img class="skins" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champion_name}}_{{skin.num}}.jpg" >
+                </div>
+                {%endfor%}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    
+    
+    <div class="championAbility">
+        <h3>Champion Ability</h3>
+        <table>
+            <thead>
+                <tr>
+    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Passive</td>
+                    <td>{{passive.name}}</td>
+                    <td><img class="passiveIMG" src="http://ddragon.leagueoflegends.com/cdn/11.8.1/img/passive/{{passive.image.full}}" alt="Passive Icon" ></td>
+                    <td><p class="description">{{passive.description}}</p></td>
+                </tr>
+                {%for spell in champion_spell%}
+                <tr>
+                    <td>Spell</td>
+                    <td>{{spell.name}}</td>
+                    <td><img class="passiveIMG" src="http://ddragon.leagueoflegends.com/cdn/11.8.1/img/spell/{{spell.image.full}}"  alt="Ability Icon"></td>
+                    <td><p class="description">{{spell.description}}</p></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h2>Ally's Tip</h2>
+                <img class="leagueStamp" src="{%static 'Pictures/League_logo_1.png'%}" >
+            </div>
+            <div class="flip-card-back">
+                <p>{{allytips.0}}</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h2>Champion Stats</h2>
+                <img class="leagueStamp" src="{%static 'Pictures/League_logo_1.png'%}" >
+            </div>
+            <div class="flip-card-back">
+                {%for stat in champion_stat%}
+                <table>
+                    <thead>
+                        <tr>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Armor</td>
+                            <td>{{stat.armor}}</td>
+                            <td>Attack Range</td>
+                            <td>{{stat.attackrange}}</td>
+                        </tr>
+                        <tr>
+                            <td>Magic Resist</td>
+                            <td>{{stat.spellblock}}</td>
+                            <td>Attack Damage</td>
+                            <td>{{stat.attackdamage}}</td>
+                        </tr>
+                        <tr>
+                            <td>HP</td>
+                            <td>{{stat.hp}}</td>
+                            <td>Attack Speed</td>
+                            <td>{{stat.attackspeed}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mana</td> 
+                            <td>{{stat.mp}}</td>
+                            <td>Move Speed</td> 
+                            <td>{{stat.movespeed}}</td>
+                        </tr>
+                        <tr>
+                            <td>HP Regen</td>
+                            <td>{{stat.hpregen}}</td>
+                            <td>Mana Regen</td>
+                            <td>{{stat.mpregen}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h2>Enemy's Tip</h2>
+                <img class="leagueStamp" src="{%static 'Pictures/League_logo_1.png'%}" >
+            </div>
+            <div class="flip-card-back">
+                <p>{{enemytips.0}}</p>
+            </div>
+        </div>
+    </div>
+
+
+   
+</div>
+<script src="{% static 'js/champsAbility.js' %}"></script>
+
+{% endblock %}

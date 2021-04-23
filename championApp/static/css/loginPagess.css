@@ -1,0 +1,43 @@
+
+.loginVideo{
+    position:fixed;
+    min-width:100%;
+    left:0;
+}
+
+#loginVideo{
+    width:100%;
+}
+#register_butt{
+    margin-top:25px;
+}
+
+#login_butt{
+    margin-top:25px;
+}
+
+.login{
+    display:flex;
+    vertical-align:top; 
+    position:absolute;
+    margin-top:50px;
+    margin-left:250px;
+    padding:30px;
+    background-color:rgba(20, 20, 20, 0.3);
+    
+}
+.registration{
+    margin:50px;
+    padding:30px;
+    position:fixed;
+    left:30px;
+    background-color:rgba(20, 19, 19, 0.3);
+}
+.imgLogo{
+    position:fixed;
+    width:20%;
+    right:0;
+    bottom:0;
+}
+
+

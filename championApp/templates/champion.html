@@ -1,0 +1,67 @@
+{% extends "frontPage.html" %}
+{% block title %}Champions{% endblock %}
+{% block head %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/champion.css' %}">
+<link rel="stylesheet" href="{% static 'css/champsAbility.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css"/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+{{ block.super }}
+{% endblock %}
+{% block content %}
+<style>
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 450px;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+  }
+</style>
+<div class="titlePage">
+  <h5>CHOOSE YOUR</h5>
+  <h1><strong>CHAMPION</strong></h1>
+  <p>With more than 140 champion, you'll find the perfect match for your playstyle. Master one or master them all.</p>
+</div>
+<div class="AddChamps">
+  <form action="/add/Champion" method="POST">
+    {%csrf_token%}
+    <input type="text" placeholder="Champion Name" name="champion">
+    <input type="submit" class="btn btn-outline-success" value="Add">
+  </form>
+</div>
+
+
+
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {%for champion in champion_data%}
+    <div class="swiper-slide">
+      <div class="card">
+        <div class="sliderText">
+          <img id="championSplash" src= "{{champion.champion_img}}">
+        </div>
+        <div class="content">
+          <h4>{{champion.champion_id}}:</h4> 
+          <h5><em>{{champion.champion_title}}</em></h5>
+          <p>{{champion.lore}}</p>
+          <a href="/champion/ability/{{champion.champs_id}}" class="btn btn-outline-info">Learn More</a>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<div class="rankIcons">
+  <img src=""
+</div>
+
+
+<script src="{% static 'js/champion.js' %}"></script>
+{% endblock %}

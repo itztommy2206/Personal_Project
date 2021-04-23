@@ -1,47 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block head %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rioters</title>
+    {% load static %}
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>{%block title%}Rioters{% endblock %}</title>
+    {% endblock %}
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand"  href="#">
+          <img id="iconImg" src="{% static 'Pictures/league_icon.png' %}" width="22px">
+          League of Legends
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Champions</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Shopping</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+              <a class="nav-link" href="/champions">Champions</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
+              <a class="nav-link" href="/shopping">Shopping</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          {%if current_user%}
+          <ul class="navbar-nav">
+            <li>
+              <a href="#">Hello, {{current_user.first_name}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-danger" href="/logout">Log Out</a>
+            </li>
+            
+          </ul>
+          {%else%}
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              
+              <a class="nav-link btn btn-outline-success" href="/login">Sign in</a>
+            </li>
+          </ul>
+          {%endif%}
         </div>
       </nav>
+      
+        {% block content %}
+          
+       
+          <link rel="stylesheet" href="{% static 'css/frontPages.css' %}">
+          <div class="loginVideo">
+            <video  autoplay="autoplay" loop muted id="loginVideo">
+              <source src="{%static 'videos/LoginLeague.mp4' %}">
+            </video>
+          </div>
+
+          <div class="content">
+            <img id="riotLogo" src="{% static 'Pictures/Riot_Games_logo.png' %}">
+          </div>
+          <div class="buttonCont">
+             <a  id="leaguelink" target="_blank" class="btn btn-outline-warning" href="https://na.leagueoflegends.com/en-us/">Get Started</a>          
+          </div>
+          
+          <div class="extraContent">
+            <h3>Our Story</h3>
+            <div class="content1">
+              <p>
+                Riot Games was founded in 2006 to develop, <br>
+                publish, and support the most player-focused <br>
+                games in the world. In 2009, we released our debut <br>
+                title, League of Legends, to worldwide acclaim. League <br>
+                has gone on to be the most-played PC game in the world <br>
+                and a key driver of the explosive growth of esports. 
+              </p> 
+            </div>
+            <div class="contentContainer">
+              <p class="content2">
+                As League enters its second decade, we’re continuing<br>
+                to evolve the game while delivering new experiences to <br>
+                players with Teamfight Tactics, Legends of Runeterra,<br>
+                VALORANT, League of Legends: Wild Rift, and multiple <br>
+                work-in-progress titles. We’re also expanding the world <br>
+                of Runeterra through multimedia projects across music, <br>
+                comic books, board games, and the upcoming animated<br> 
+                series Arcane.<br>
+              </p>
+
+              <p class="content2">
+                The annual League of Legends World Championship<br> 
+                features qualified esports teams from 12 international<br> 
+                leagues. Worlds is the most widely viewed and followed<br> 
+                esport tournament, and it’s among the largest and most<br> 
+                popular gaming and sporting events in the world.
+              </p>
+              
+              <p class="content2">
+                Founded by Brandon Beck and Marc Merrill, and led by<br>
+                CEO Nicolo Laurent, Riot is headquartered in Los Angeles,<br>
+                California, and has 3,000+ Rioters in 20+ offices worldwide.<br>
+                We're certified as a Great Place to Work and we’ve been<br>
+                featured on numerous lists including Fortune’s “100 Best<br>
+                Companies to Work For,” “25 Best Companies to Work in<br>
+                Technology,” “100 Best Workplaces for Millennials,” and <br>
+                “50 Best Workplaces for Flexibility.” 
+              </p>
+            </div>  
+            <button class="btn btn-outline-secondary"id="toggle" data-content="toggle-text">Read More</button>
+          </div>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <script src="{% static 'js/frontPage.js' %}"></script>
+        {% endblock %}
+      
 </body>
 </html>

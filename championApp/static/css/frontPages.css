@@ -1,0 +1,50 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+
+
+#loginVideo{
+    position:fixed;
+    vertical-align: top;
+    width:100vw;
+    height:100vh;
+    object-fit: cover;
+    
+}
+
+.content, #ritoLogo{
+    position:fixed;
+    bottom:0;
+    color:#f1f1f1;
+    width:30%;
+    padding:20px;
+}
+
+.extraContent{
+    position:absolute;
+    background-color:rgba(20, 19, 19, 0.3);
+    color:white;
+    padding:10px;
+    right:0;
+    bottom:0;   
+}
+
+.buttonCont{
+    position:fixed;
+    width:100px;
+    left:50%;
+    top:50%;
+    background-color:rgba(20, 19, 19, 0.3);
+    color:white;
+}
+#leaguelink{
+    position:fixed;
+}
+
+#iconImg{
+    width:22px;
+}
+
+
+

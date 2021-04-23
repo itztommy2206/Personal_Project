@@ -1,0 +1,328 @@
+{% extends "frontPage.html" %}
+{% block title %}Shop{% endblock %}
+{% block head %}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/shops.css' %}">
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css"/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+{{ block.super }}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>This is the shopping page</h1>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/EkkoFront.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Ekkoback.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Ekko_cup.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Ekko_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+        
+    </div>    
+   
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise"  src="{% static 'Shopping/Jixn_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Jixn_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Jixn_cup.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Jixn_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Vi_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Vi_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Vi_cup.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Vi_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Ashe_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Ashe_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Ashe_cup.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Ashe_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+    </div>
+    
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Braum_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Braum_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Braum_cup.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Braum_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Katerina_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Katerina_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Katerina_cup.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Katerina_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Evelyn_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Evelyn_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Evelyn_pose.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Evelyn_side.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Evelyn_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Yasuo_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Yasuo_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Yasuo_pose.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Yasuo_side.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img src="{% static 'Shopping/Yasuo_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Akali_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Akali_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Akali_cup.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Akali_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                 <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+    </div>
+    
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Irelia_front.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Irelia_back.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Irelia_mask.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Irelia_side.png' %}" alt="My image"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Item_image"><img class="merchandise" src="{% static 'Shopping/Irelia_box.png' %}" alt="My image"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="cart_Button">
+            <form action="/addCart/{{item.id}}" method="POST">
+                {%csrf_token%}
+                <input type="submit" class="btn btn-outline-warning" value="Add Cart">
+            </form>
+            <form action="/buyNow/{{item.id}}" method="POST">
+                {%csrf_token%}
+                 <input type="Submit" class="btn btn-outline-primary" value="Buy Now">
+            </form>
+        </div>
+       
+    </div>
+
+    
+
+    
+
+</div>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'cube',
+      grabCursor: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+</script>
+{% endblock %}
